@@ -1,4 +1,20 @@
-import nltk
+START
+IF (Trigger event like Wi-Fi connected)
+  THEN
+    HTTP POST to https://api.github.com/repos/{owner}/{repo}/issues
+    HEADERS:
+      Authorization: token YOUR_GITHUB_TOKEN
+      Content-Type: application/json
+    BODY:
+    {
+      "title": "Automated Issue from Android",
+      "body": "This issue was created automatically using Automate on Android."
+    }
+  IF (HTTP Response == 201)
+    THEN
+      Send notification "Issue Created Successfully!"
+    ELSE
+      Send notification "Issue Creation Failed!"import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 nltk.download('vader_lexicon')
