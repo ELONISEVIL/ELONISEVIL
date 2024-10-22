@@ -1,4 +1,4 @@
-# sudo su  
+## sudo su  
 class Concept:
     def __init__(self, name, attributes={}, relations={}):
         self.name = name
